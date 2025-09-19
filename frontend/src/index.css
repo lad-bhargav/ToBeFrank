@@ -1,0 +1,6 @@
+@import "tailwindcss";
+@tailwind utilities;
+
+.textdz{
+    @apply font-semibold text-lg cursor-pointer
+}
