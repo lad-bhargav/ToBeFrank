@@ -33,8 +33,8 @@ export default function NavBar(){
                     </div>
                 ) : (
                     <div className="gap-3 h-full w-[15%] flex justify-center items-center">
-                        <button className="h-10 text-white shadow-md cursor-pointer text-lg rounded font-semibold w-20 bg-gradient-to-l from-violet-700 to-violet-500" onClick={login}>Login</button>
-                        <button className="h-10 text-white shadow-md cursor-pointer text-lg rounded font-semibold w-20 bg-gradient-to-l from-violet-700 to-violet-500" onClick={signup}>signup</button>
+                        <button className="h-10 text-white shadow-md cursor-pointer text-lg rounded font-semibold w-20 bg-gradient-to-b from-violet-700 to-violet-500" onClick={login}>Login</button>
+                        <button className="h-10 text-white shadow-md cursor-pointer text-lg rounded font-semibold w-20 bg-gradient-to-b from-violet-700 to-violet-500" onClick={signup}>signup</button>
                     </div>
                 )
             }

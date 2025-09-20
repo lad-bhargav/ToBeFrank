@@ -21,6 +21,24 @@ app.get("/",(req,res)=>{
     res.send("working");
 });
 
+app.post("/signup",async(req,res)=>{
+    try{
+        let {email,username,password} = req.body;
+        const newUser = new User({
+            email : email,
+            username : username,
+            password : password,
+        });
+        await newUser.save();
+        res.json({
+            "message" : "signuped",
+        })
+    }catch(err){
+        res.status(500).json({error : err.message});
+    }
+
+})
+
 app.listen(8080,()=>{
     console.log(`app is listing at port 8080`);
 })
