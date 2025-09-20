@@ -7,15 +7,19 @@ import Home from './pages/Home';
 import NavBar from './components/NavBar';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
+import Profile from './pages/Profile';
+import EditProfile from './pages/EditProfile';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
     <NavBar/>
         <Routes>
-            <Route path='/' element={<Home/>}/>
+            <Route path='/home' element={<Home/>}/>
             <Route path='/login' element = {<Login/>}/>
             <Route path='/signup' element = {<SignUp/>}/>
+            <Route path='/profile' element = {<Profile/>}/>
+            <Route path='/profile/edit' element = {<EditProfile/>}/>
         </Routes>
     </BrowserRouter>
   </StrictMode>,

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import logo from "../assets/tbflogo.png";
 import { useNavigate } from "react-router-dom";
 export default function NavBar(){
@@ -6,7 +6,7 @@ export default function NavBar(){
     const navigate = useNavigate();
 
     const home = () =>{
-        navigate("/");
+        navigate("/home");
     }
 
     const login = () => {
@@ -17,6 +17,12 @@ export default function NavBar(){
         navigate("/signup");
     }
 
+    useEffect(()=>{
+        if(localStorage.getItem("email") != undefined){
+            setIsLogin(true);
+        }
+    },[isLogin]);
+
     return(
         <div className="h-[10vh] w-full flex items-center fixed shadow-sm bg-white">
             <div className="logo h-full w-[15%] flex justify-center items-center">
@@ -25,11 +31,12 @@ export default function NavBar(){
             <div className="h-full w-[70%] flex justify-center items-center gap-5">
                 <p className="textdz" onClick={home}>Home</p>
                 <p className="textdz">Explore</p>
+                <p className="textdz">MyPosts</p>
             </div>
             {
                 isLogin ? (
                     <div className="user h-full w-[15%] flex justify-center items-center">
-                        <p className="textdz">Profile</p>
+                        <p className="text-2xl font-bold cursor-pointer text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-pink-600" onClick={()=> navigate("/profile")}>{localStorage.getItem("username")}</p>
                     </div>
                 ) : (
                     <div className="gap-3 h-full w-[15%] flex justify-center items-center">
