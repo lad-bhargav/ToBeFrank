@@ -94,6 +94,15 @@ app.post("/profile/edit",async(req,res)=>{
     }catch(err){
         res.status(500).json({error : err.message});
     }
+});
+
+app.get("/home",async(req,res)=>{
+    try{
+        const allPosts = await Post.find({});
+        res.json(allPosts);
+    }catch(err){
+        res.status(500).json({error : err.message});
+    }
 })
 
 app.listen(8080,()=>{
