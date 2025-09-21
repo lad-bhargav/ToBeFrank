@@ -20,7 +20,7 @@ export default function Home(){
     }
 
     return(
-        <div className="h-screen w-screen flex flex-col justify-center items-center">
+        <div className="min-h-screen pl-40 bg-gradient-to-l from-fuchsia-300 to-violet-300 max-w-screen flex flex-col justify-center items-center">
             {
                 posts.map((post,idx)=>(
                     <Post

@@ -39,8 +39,8 @@ export default function EditProfile(){
         }
     }
     return(
-        <div className="flex h-screen w-screen justify-center items-center ">
-            <div className="card p-5 h-[70%] w-[50%] bg-gradient-to-l from-fuchsia-300 to-violet-300 rounded-xl mt-5 flex  items-center flex-col gap-3 shadow-lg">
+        <div className="flex h-screen w-screen pl-40 justify-center items-center bg-gradient-to-l from-fuchsia-300 to-violet-300">
+            <div className="card p-5 h-[70%] w-[50%] bg-gradient-to-l from-fuchsia-400 to-violet-400 rounded-xl mt-5 flex  items-center flex-col gap-3 shadow-lg">
                 <h1 className="text-3xl font-bold mt-5">Edit Profile</h1>
                 <div className="h-[50%] w-full flex flex-col items-center mt-5">
                     <input type="text" placeholder="username" className="h-10 w-65 shadow-md bg-gray-50 rounded p-2 mt-5" name="username" value={username} onChange={(e)=>setUsername(e.target.value)}/>

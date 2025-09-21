@@ -1,6 +1,6 @@
 export default function Post({id,profilepic,username,contentText,contentImg}){
     return(
-        <div className="postCard h-auto w-[60vh] rounded-md p-5 shadow-2xl mt-7">
+        <div className="postCard h-auto w-[60vh] bg-blue-50 rounded-md p-5 shadow-xl mt-7">
             <div className="top h-[15%] w-full flex items-center gap-2">
                 <div className="h-[45px] w-[45px] overflow-hidden text-center rounded-full"><img src={profilepic} alt="?" className="h-full w-full bg-white object-cover"/></div>
                 <p className="font-semibold text-lg">{username}</p>

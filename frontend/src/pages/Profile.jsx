@@ -33,7 +33,7 @@ export default function Profile(){
     }
 
     return(
-        <div className="flex h-screen w-screen justify-center items-center ">
+        <div className="flex h-screen w-screen justify-center items-center pl-40 bg-gradient-to-l from-fuchsia-300 to-violet-300">
             <div className="card h-[70%] w-[50%] bg-gradient-to-l from-fuchsia-300 to-violet-300 rounded-xl mt-5 flex  items-center flex-col gap-3 shadow-lg">
                 <div className="h-[32%] w-full rounded-tl-xl rounded-tr-xl bg-gradient-to-r from-violet-500 to-pink-600 flex justify-center items-center">
                     <div className="h-[150px] w-[150px] overflow-hidden mt-35 text-center rounded-full shadow-lg">

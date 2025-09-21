@@ -2,5 +2,5 @@
 @tailwind utilities;
 
 .textdz{
-    @apply font-semibold text-lg cursor-pointer
+    @apply font-semibold text-2xl flex justify-center items-center cursor-pointer text-start
 }
