@@ -22,8 +22,10 @@ export default function MyPosts(){
     }
 
     return(
-        <div className="h-screen w-screen flex flex-row gap-5 justify-center pl-40 items-center bg-gradient-to-l from-fuchsia-100 to-violet-200">
-            {
+        <div className="h-screen w-screen flex bg-gradient-to-l from-fuchsia-300 to-violet-300">
+            <div className="left h-screen w-[30%]"></div>
+            <div className="right h-screen w-[70%] flex flex-wrap gap-5">
+                {
                 userPosts.length > 0 ? (
                     userPosts.map((post)=>(
                         <div>
@@ -40,6 +42,7 @@ export default function MyPosts(){
                     <p className="text-4xl text-center font-bold">No Posts found</p>
                 )
             }
+            </div>
         </div>
     );
 }

@@ -46,7 +46,7 @@ export default function Profile(){
                 </div>
                 <div className="flex gap-5">
                     <button onClick={editProfile} className="h-10 text-white shadow-md cursor-pointer text-lg rounded font-normal w-20 bg-gradient-to-b from-violet-700 to-violet-500">Edit</button>
-                    <button onClick={LogOut} className="h-10 shadow-md cursor-pointer text-lg rounded font-semibold w-20 bg-red-300  text-red-600">Log-out</button>
+                    <button onClick={LogOut} className="h-10 shadow-md cursor-pointer text-lg rounded font-semibold w-20 bg-red-200 hover:border-[2px] border-red-600 text-red-600">Log-out</button>
                 </div>
             </div>
         </div>

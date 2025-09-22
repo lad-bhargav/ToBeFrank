@@ -11,6 +11,7 @@ import Profile from './pages/Profile';
 import EditProfile from './pages/EditProfile';
 import CreatePost from './pages/CreatePost';
 import MyPosts from './pages/MyPosts';
+import EditPost from './pages/EditPost';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -25,6 +26,7 @@ createRoot(document.getElementById('root')).render(
             <Route path='/profile/edit' element = {<EditProfile/>}/>
             <Route path='/create' element = {<CreatePost/>}/>
             <Route path='myposts' element = {<MyPosts/>}/>
+            <Route path='/editpost' element= {<EditPost/>}/>
         </Routes>
     </BrowserRouter>
   </StrictMode>,

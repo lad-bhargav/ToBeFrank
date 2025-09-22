@@ -28,7 +28,7 @@ export default function NavBar(){
     },[isLogin]);
 
     return(
-        <div className="h-full w-[50vh] flex flex-col items-center fixed shadow-sm bg-gradient-to-b from-fuchsia-100 to-violet-200">
+        <div className="h-full w-[45vh] flex flex-col items-center fixed shadow-sm bg-gradient-to-b from-fuchsia-100 to-violet-200">
             <div className="logo w-full h-[15%] flex justify-center items-center">
                 <img className="h-9 object-cover cursor-pointer" src={logo} alt="ToBeFrank" onClick={home}/>
             </div>
