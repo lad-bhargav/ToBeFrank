@@ -138,6 +138,19 @@ app.post("/myposts",async(req,res)=>{
     }
 });
 
+app.delete("/delete",async(req,res)=>{
+    try{
+        const {id} = req.body;
+        const deletedPost = await Post.findByIdAndDelete(id);
+        console.log(deletedPost);
+        res.json({
+            "message" : "deleted",
+        })
+    }catch(err){
+        res.status(404).json({error : err.message});
+    }
+})
+
 
 app.listen(8080,()=>{
     console.log(`app is listing at port 8080`);

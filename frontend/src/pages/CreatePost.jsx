@@ -42,7 +42,7 @@ export default function CreatePost(){
     }
     return(
         <div className="h-screen w-screen flex justify-center pl-40 items-center bg-gradient-to-l from-fuchsia-100 to-violet-200">
-            <div className="form mt-5 h-[70%] w-[50%] text-center p-5 flex justify-center items-center flex-col rounded-xl shadow-lg gap-2 bg-[#131231]">
+            <div className="form mt-5 h-[70%] w-[50%] text-center p-5 flex justify-center items-center flex-col rounded-xl shadow-lg gap-2 bg-gradient-to-r from-[#0f0d47] to-blue-800">
                 <div className="logo w-full h-[20%] flex justify-center items-center">
                     <img className="h-9 object-cover" src={logo} alt="ToBeFrank"/>
                 </div>

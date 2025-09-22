@@ -17,6 +17,7 @@ createRoot(document.getElementById('root')).render(
     <BrowserRouter>
     <NavBar/>
         <Routes>
+          <Route path='/' element = {<Home/>}/>
             <Route path='/home' element={<Home/>}/>
             <Route path='/login' element = {<Login/>}/>
             <Route path='/signup' element = {<SignUp/>}/>
