@@ -9,6 +9,8 @@ import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import Profile from './pages/Profile';
 import EditProfile from './pages/EditProfile';
+import CreatePost from './pages/CreatePost';
+import MyPosts from './pages/MyPosts';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -20,6 +22,8 @@ createRoot(document.getElementById('root')).render(
             <Route path='/signup' element = {<SignUp/>}/>
             <Route path='/profile' element = {<Profile/>}/>
             <Route path='/profile/edit' element = {<EditProfile/>}/>
+            <Route path='/create' element = {<CreatePost/>}/>
+            <Route path='myposts' element = {<MyPosts/>}/>
         </Routes>
     </BrowserRouter>
   </StrictMode>,

@@ -105,6 +105,40 @@ app.get("/home",async(req,res)=>{
     }
 })
 
+app.post("/create",async(req,res)=>{
+    try{
+        const {email,username,profilepic,contentText,contentImg} = req.body;
+        const newPost = new Post({
+            "email" : email,
+            "username" : username,
+            "profilepic" : profilepic,
+            "content" : {
+                "text" : contentText,
+                "img" : contentImg,
+            }
+        });
+        await newPost.save();
+        res.json({
+            "message" : "postAdded",
+        });
+    }catch(err){
+        res.status(500).json({error : err.message});
+    }
+});
+
+app.post("/myposts",async(req,res)=>{
+    try{
+        const {email} = req.body;
+        const userPosts = await Post.find({
+            "email" : email,
+        });
+        res.json(userPosts);
+    }catch(err){
+        res.status(500).json({error : err.message});
+    }
+});
+
+
 app.listen(8080,()=>{
     console.log(`app is listing at port 8080`);
 })

@@ -3,6 +3,7 @@ import logo from "../assets/tbflogo.png";
 import HomeIcon from '@mui/icons-material/Home';
 import SearchIcon from '@mui/icons-material/Search';
 import EmailIcon from '@mui/icons-material/Email';
+import AddIcon from '@mui/icons-material/Add';
 import { useNavigate } from "react-router-dom";
 export default function NavBar(){
     const [isLogin,setIsLogin] = useState(false);
@@ -27,23 +28,35 @@ export default function NavBar(){
     },[isLogin]);
 
     return(
-        <div className="h-full w-[50vh] flex flex-col items-center fixed shadow-sm bg-white">
+        <div className="h-full w-[50vh] flex flex-col items-center fixed shadow-sm bg-gradient-to-b from-fuchsia-100 to-violet-200">
             <div className="logo w-full h-[15%] flex justify-center items-center">
                 <img className="h-9 object-cover cursor-pointer" src={logo} alt="ToBeFrank" onClick={home}/>
             </div>
             <div className="w-full h-[70%] flex flex-col justify-center items-center gap-10">
                 <p className="textdz flex items-center gap-2" onClick={home}><HomeIcon fontSize="large"/>Home</p>
-                <p className="textdz pl-1 flex items-center gap-1"><SearchIcon fontSize="large"/>Explore</p>
-                <p className="textdz pl-3 flex items-center gap-1"><EmailIcon fontSize="large"/>MyPosts</p>
-                <button className="h-10 text-white cursor-pointer text-lg rounded-4xl font-semibold w-25 bg-gradient-to-l from-violet-700 to-violet-500">Create</button>
+                <p className="textdz pl-3 flex items-center gap-1"><SearchIcon fontSize="large"/>Explore</p>
+                {
+                    isLogin ? (
+                        <p className="textdz pl-6 flex items-center gap-1" onClick={()=>navigate("/myposts")}><EmailIcon fontSize="large"/>MyPosts</p>
+                    ):(
+                        <div></div>
+                    )
+                }
+                {
+                    isLogin ? (
+                        <button className="h-10 text-white cursor-pointer text-lg rounded-4xl font-semibold w-25 bg-gradient-to-l from-violet-700 to-violet-500" onClick={()=>navigate("/create")}><AddIcon/>Create</button>
+                    ):(
+                        <div></div>
+                    )
+                }
             </div>
             {
                 isLogin ? (
-                    <div className="user w-full h-[15%] bg-black flex justify-center items-center">
+                    <div className="user w-full h-[15%] bg-[#131231] flex justify-center items-center">
                         <p className="text-2xl font-bold cursor-pointer text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-pink-600" onClick={()=> navigate("/profile")}>{localStorage.getItem("username")}</p>
                     </div>
                 ) : (
-                    <div className="gap-3 h-full w-[15%] flex justify-center items-center">
+                    <div className="gap-3 w-full h-[15%] flex justify-center items-center">
                         <button className="h-10 text-white shadow-md cursor-pointer text-lg rounded font-semibold w-20 bg-gradient-to-b from-violet-700 to-violet-500" onClick={login}>Login</button>
                         <button className="h-10 text-white shadow-md cursor-pointer text-lg rounded font-semibold w-20 bg-gradient-to-b from-violet-700 to-violet-500" onClick={signup}>signup</button>
                     </div>

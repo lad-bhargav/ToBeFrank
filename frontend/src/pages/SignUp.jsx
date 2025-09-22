@@ -33,17 +33,8 @@ export default function SignUp(){
     }
 
     return(
-        <div className="h-screen w-screen flex bg-gradient-to-l from-fuchsia-100 to-violet-200">
-            <div className="left h-[100%] w-[50%] flex flex-col justify-center items-center">
-                <div className="h-20 w-full flex justify-center items-center">
-                    <img src={logo} alt="ToBeFrank" className="h-20 object-cover"/>
-                </div>
-                <div>
-                    <p className="font-semibold text-2xl bg-clip-text text-transparent bg-gradient-to-l from-violet-700 to-violet-500">Connect with World</p>
-                </div>
-            </div>
-            <div className="right h-[100%] w-[50%] flex justify-center items-center">
-                <div className="card mt-5 h-[65%] w-[50%] text-center p-5 flex justify-center items-center flex-col rounded-xl shadow-lg gap-2 bg-gradient-to-r from-violet-200 to-violet-300">
+        <div className="h-screen w-screen flex justify-center pl-40 items-center bg-gradient-to-l from-fuchsia-100 to-violet-200">
+                <div className="card mt-5 h-[65%] w-[30%] text-center p-5 flex justify-center items-center flex-col rounded-xl shadow-lg gap-2 bg-gradient-to-r from-violet-300 to-violet-300">
                     <h1 className="text-3xl font-bold">Sign-Up</h1>
                     <input type="text" placeholder="email" name="email" className="h-10 w-65 shadow-md bg-gray-50 rounded p-2 mt-5" value={email} onChange={(e)=>setEmail(e.target.value)}/>
                     <input type="text" placeholder="username" name="username" className="h-10 w-65 shadow-md bg-gray-50 rounded p-2 mt-5" value={username} onChange={(e) => setUsername(e.target.value)}/>
@@ -52,6 +43,5 @@ export default function SignUp(){
                     <pre className="flex mt-5"><p>already have Account?</p><p className="cursor-pointer text-blue-600" onClick={login}>login</p></pre>
                 </div>
             </div>
-        </div>
     );
 }
