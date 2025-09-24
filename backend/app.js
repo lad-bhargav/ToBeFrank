@@ -79,13 +79,14 @@ app.post("/profile",async(req,res)=>{
 
 app.post("/profile/edit",async(req,res)=>{
     try{
-        const {email,username,password,profilepic} = req.body;
+        const {email,username,password,profilepic,bio} = req.body;
         const user = await User.findOneAndUpdate({
             "email" : email,
         },{
             "username" : username,
             "password" : password,
             "profilepic" : profilepic,
+            "bio" : bio,
         });
         console.log(user);
         res.json({
@@ -137,6 +138,35 @@ app.post("/myposts",async(req,res)=>{
         res.status(500).json({error : err.message});
     }
 });
+
+app.get("/post/:id",async(req,res)=>{
+    try{
+        const {id} = req.params;
+        const post = await Post.findById(id);
+        res.json(post);
+    }catch(err){
+        res.status(500).json({error : err.message});
+    }
+})
+
+app.put("/post/edit/:id",async(req,res)=>{
+    try{
+        const {id} = req.params;
+        const {contentText,contentImg} = req.body;
+        const updatePost = await Post.findByIdAndUpdate(id,{
+            "content" : {
+                "text" : contentText,
+                "img" : contentImg,
+            }
+        })
+        console.log(updatePost);
+        res.json({
+            "message" : "updated",
+        });
+    }catch(err){
+        res.status(500).json({error : err.message});
+    }
+})
 
 app.delete("/delete",async(req,res)=>{
     try{

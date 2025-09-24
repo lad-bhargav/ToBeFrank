@@ -12,13 +12,15 @@ import EditProfile from './pages/EditProfile';
 import CreatePost from './pages/CreatePost';
 import MyPosts from './pages/MyPosts';
 import EditPost from './pages/EditPost';
+import Explore from './pages/Explore';
+import TbfUsersProfile from './pages/TbfUsersProfile';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
     <NavBar/>
         <Routes>
-          <Route path='/' element = {<Home/>}/>
+          <Route path='/' element = {<Login/>}/>
             <Route path='/home' element={<Home/>}/>
             <Route path='/login' element = {<Login/>}/>
             <Route path='/signup' element = {<SignUp/>}/>
@@ -26,7 +28,9 @@ createRoot(document.getElementById('root')).render(
             <Route path='/profile/edit' element = {<EditProfile/>}/>
             <Route path='/create' element = {<CreatePost/>}/>
             <Route path='myposts' element = {<MyPosts/>}/>
-            <Route path='/editpost' element= {<EditPost/>}/>
+            <Route path='/editpost/:id' element= {<EditPost/>}/>
+            <Route path='/explore' element={<Explore/>}/>
+            <Route path='/user/:id' element={<TbfUsersProfile/>}/>
         </Routes>
     </BrowserRouter>
   </StrictMode>,

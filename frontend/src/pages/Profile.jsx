@@ -34,7 +34,7 @@ export default function Profile(){
 
     return(
         <div className="flex h-screen w-screen justify-center items-center pl-40 bg-gradient-to-l from-fuchsia-300 to-violet-300">
-            <div className="card h-[70%] w-[50%] bg-gradient-to-r from-fuchsia-400 to-violet-400 rounded-xl mt-5 flex  items-center flex-col gap-3 shadow-lg">
+            <div className="card h-[70%] w-[50%] rounded-xl mt-5 flex  items-center flex-col gap-3 shadow-lg">
                 <div className="h-[32%] w-full rounded-tl-xl rounded-tr-xl bg-gradient-to-r from-violet-500 to-pink-600 flex justify-center items-center">
                     <div className="h-[150px] w-[150px] overflow-hidden mt-35 text-center rounded-full shadow-lg">
                     <img src={profile.profilepic} alt="no pic" className="h-full w-full bg-white object-cover"/>
@@ -42,11 +42,11 @@ export default function Profile(){
                 </div>
                 <div className="h-[30%] w-full mt-17 text-center flex flex-col justify-center items-center">
                     <p className="text-2xl font-bold">{profile.username}</p>
-                    <p className="textdz">{profile.email}</p>
+                    <p className="text-md"><i>{profile.bio}</i></p>
                 </div>
                 <div className="flex gap-5">
-                    <button onClick={editProfile} className="h-10 text-white shadow-md cursor-pointer text-lg rounded font-normal w-20 bg-gradient-to-b from-violet-700 to-violet-500">Edit</button>
-                    <button onClick={LogOut} className="h-10 shadow-md cursor-pointer text-lg rounded font-semibold w-20 bg-red-200 hover:border-[2px] border-red-600 text-red-600">Log-out</button>
+                    <button onClick={editProfile} className="h-10 text-white shadow-md cursor-pointer text-lg rounded font-normal w-20 hover:bg-violet-700 bg-violet-800">Edit</button>
+                    <button onClick={LogOut} className="h-10 shadow-md cursor-pointer text-lg rounded font-semibold w-20 bg-red-200 hover:border-[0.5px] border-red-600 text-red-600">Log-out</button>
                 </div>
             </div>
         </div>

@@ -6,6 +6,7 @@ export default function EditProfile(){
     const [username,setUsername] = useState("");
     const [password,setPassword] = useState("");
     const [profilepic,setProfilepic] = useState("");
+    const [bio,setBio] = useState("");
 
     const navigate = useNavigate();
 
@@ -21,6 +22,7 @@ export default function EditProfile(){
         setUsername(userProfile.data.profile.username);
         setPassword(userProfile.data.profile.password);
         setProfilepic(userProfile.data.profile.profilepic);
+        setBio(userProfile.data.profile.bio);
     }
 
     const updateProfile = async() => {
@@ -30,6 +32,7 @@ export default function EditProfile(){
             "username" : username,
             "password" : password,
             "profilepic" : profilepic,
+            "bio" : bio,
         });
         if(newProfile.data.message === "profileUpdated"){
             localStorage.setItem("username",username);
@@ -45,10 +48,11 @@ export default function EditProfile(){
                 <div className="h-[50%] w-full flex flex-col items-center mt-5">
                     <input type="text" placeholder="username" className="h-10 w-65 shadow-md bg-gray-50 rounded p-2 mt-5" name="username" value={username} onChange={(e)=>setUsername(e.target.value)}/>
                     <input type="password" placeholder="password" className="h-10 w-65 shadow-md bg-gray-50 rounded p-2 mt-5" name="password" value={password} onChange={(e)=>setPassword(e.target.value)}/>
+                    <input type="text" placeholder="Bio that suits you..." className="h-10 w-65 shadow-md bg-gray-50 rounded p-2 mt-5" name="bio" value={bio} onChange={(e)=>setBio(e.target.value)}/>
                     <input type="text" placeholder="profile pic" className="h-10 w-65 shadow-md bg-gray-50 rounded p-2 mt-5" name="profilepic" value={profilepic} onChange={(e)=>setProfilepic(e.target.value)}/>
                 </div>
                 <div className="h-[30%] w-full flex justify-center items-center">
-                    <button className="h-10 text-white shadow-md cursor-pointer text-lg rounded font-semibold w-25 bg-gradient-to-l from-violet-700 to-violet-500" onClick={updateProfile}>Edit</button>
+                    <button className="h-10 text-white shadow-md cursor-pointer text-lg rounded font-semibold w-25 hover:bg-violet-700 bg-violet-800" onClick={updateProfile}>Edit</button>
                 </div>
             </div>
         </div>

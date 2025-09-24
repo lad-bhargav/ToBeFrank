@@ -34,7 +34,7 @@ export default function NavBar(){
             </div>
             <div className="w-full h-[70%] flex flex-col justify-center items-center gap-10">
                 <p className="textdz flex items-center gap-2" onClick={home}><HomeIcon fontSize="large"/>Home</p>
-                <p className="textdz pl-3 flex items-center gap-1"><SearchIcon fontSize="large"/>Explore</p>
+                <p className="textdz pl-3 flex items-center gap-1" onClick={()=>navigate("/explore")}><SearchIcon fontSize="large"/>Explore</p>
                 {
                     isLogin ? (
                         <p className="textdz pl-6 flex items-center gap-1" onClick={()=>navigate("/myposts")}><EmailIcon fontSize="large"/>MyPosts</p>
@@ -44,7 +44,7 @@ export default function NavBar(){
                 }
                 {
                     isLogin ? (
-                        <button className="h-10 text-white cursor-pointer text-lg rounded-4xl font-semibold w-25 bg-gradient-to-l from-violet-700 to-violet-500" onClick={()=>navigate("/create")}><AddIcon/>Create</button>
+                        <button className="h-10 text-white cursor-pointer text-lg rounded-4xl font-semibold ml-5 w-25 hover:bg-violet-700 bg-violet-800" onClick={()=>navigate("/create")}><AddIcon/>Create</button>
                     ):(
                         <div></div>
                     )
@@ -56,9 +56,9 @@ export default function NavBar(){
                         <p className="text-2xl font-bold cursor-pointer text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-pink-600" onClick={()=> navigate("/profile")}>{localStorage.getItem("username")}</p>
                     </div>
                 ) : (
-                    <div className="gap-3 w-full h-[15%] flex justify-center items-center">
-                        <button className="h-10 text-white shadow-md cursor-pointer text-lg rounded font-semibold w-20 bg-gradient-to-b from-violet-700 to-violet-500" onClick={login}>Login</button>
-                        <button className="h-10 text-white shadow-md cursor-pointer text-lg rounded font-semibold w-20 bg-gradient-to-b from-violet-700 to-violet-500" onClick={signup}>signup</button>
+                    <div className="gap-3 w-full h-[15%] bg-[#131231] flex justify-center items-center">
+                        <button className="h-10 text-white shadow-md cursor-pointer text-lg rounded font-semibold w-20 hover:bg-violet-700 bg-violet-800" onClick={login}>Login</button>
+                        <button className="h-10 text-white shadow-md cursor-pointer text-lg rounded font-semibold w-20 hover:bg-violet-700 bg-violet-800" onClick={signup}>signup</button>
                     </div>
                 )
             }
