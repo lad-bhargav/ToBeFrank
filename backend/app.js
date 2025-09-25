@@ -179,6 +179,28 @@ app.delete("/delete",async(req,res)=>{
     }catch(err){
         res.status(404).json({error : err.message});
     }
+});
+
+app.post("/user",async(req,res)=>{
+    try{
+        const {username} = req.body;
+        const userProfile = await User.findOne({
+            "username" : username,
+        });
+        res.json(userProfile);
+    }catch(err){
+        res.status(500).json({error : err.message});
+    }
+});
+
+app.get("/user/:id",async(req,res)=>{
+    try{
+        const {id} = req.params;
+        const userProfiledata = await User.findById(id);
+        res.json(userProfiledata);
+    }catch(err){
+        res.status(500).json({error:err.message});
+    }
 })
 
 

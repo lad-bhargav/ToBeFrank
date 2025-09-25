@@ -1,9 +1,16 @@
 import DeleteIcon from '@mui/icons-material/Delete';
 import axios from "axios";
+import { useEffect, useState } from 'react';
 import {useNavigate} from "react-router-dom";
 
 export default function Post({id,profilepic,username,contentText,contentImg}){
     const currUser = localStorage.getItem("username");
+    const [userId,setUserId] = useState("");
+
+    useEffect(()=>{
+        getUserProfile();
+    },[]);
+
     const navigate = useNavigate();
     const deletePost = async() => {
         const deletePost = await axios.delete("http://localhost:8080/delete",{
@@ -16,8 +23,19 @@ export default function Post({id,profilepic,username,contentText,contentImg}){
         }
     }
 
+    const getUserProfile = async() => {
+        const userProfile = await axios.post("http://localhost:8080/user",{
+            username,
+        });
+        setUserId(userProfile.data._id);
+    }
+
     const userProfile = () => {
-        navigate(`user/${id}`);
+        if(userId){
+            navigate(`/user/${userId}`);
+        }else{
+            alert("some issue with userID");
+        }
     }
 
     const editPost = () => {
@@ -28,8 +46,8 @@ export default function Post({id,profilepic,username,contentText,contentImg}){
         <div className="postCard h-auto w-full max-w-md bg-blue-50 rounded-md p-5 shadow-xl mt-5">
             <div className="top w-full flex items-center gap-2">
                 <div className='w-[50%] flex items-center gap-2'>
-                    <div className="h-[45px] w-[45px] overflow-hidden text-center rounded-full"><img src={profilepic} alt="?" className="h-full w-full bg-white object-cover cursor-pointer"/></div>
-                    <p className="font-semibold text-lg cursor-pointer">{username}</p>
+                    <div className="h-[45px] w-[45px] overflow-hidden text-center rounded-full"><img src={profilepic} alt="?" onClick={userProfile} className="h-full w-full bg-white object-cover cursor-pointer"/></div>
+                    <p className="font-semibold text-lg cursor-pointer" onClick={userProfile}>{username}</p>
                 </div>
                 <div className='w-[50%] flex gap-5'>
                     {
