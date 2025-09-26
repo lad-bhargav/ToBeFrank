@@ -33,11 +33,11 @@ export default function NavBar(){
                 <img className="h-9 object-cover cursor-pointer" src={logo} alt="ToBeFrank" onClick={home}/>
             </div>
             <div className="w-full h-[70%] flex flex-col justify-center items-center gap-10">
-                <p className="textdz flex items-center gap-2" onClick={home}><HomeIcon fontSize="large"/>Home</p>
-                <p className="textdz pl-3 flex items-center gap-1" onClick={()=>navigate("/explore")}><SearchIcon fontSize="large"/>Explore</p>
+                <p className="textdz flex items-center gap-1 rounded-4xl h-12 w-40 hover:bg-violet-200" onClick={home}><HomeIcon fontSize="large"/>Home</p>
+                <p className="textdz flex items-center gap-1 rounded-4xl ml-4 h-12 w-40 hover:bg-violet-200" onClick={()=>navigate("/explore")}><SearchIcon fontSize="large"/>Explore</p>
                 {
                     isLogin ? (
-                        <p className="textdz pl-6 flex items-center gap-1" onClick={()=>navigate("/myposts")}><EmailIcon fontSize="large"/>MyPosts</p>
+                        <p className="textdz flex items-center gap-1 rounded-4xl h-12 w-40 hover:bg-violet-200 ml-5" onClick={()=>navigate("/myposts")}><EmailIcon fontSize="large"/><p>MyPosts</p></p>
                     ):(
                         <div></div>
                     )
