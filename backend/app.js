@@ -201,7 +201,45 @@ app.get("/user/:id",async(req,res)=>{
     }catch(err){
         res.status(500).json({error:err.message});
     }
-})
+});
+
+app.get("/search",async(req,res)=>{
+    const {q} = req.query;
+    if(!q)return res.json([]);
+
+    try{
+        const users = await User.find(
+            {
+                "username" : {$regex : q,$options : "i"},
+            },
+            {
+                "username" : 1,"profilepic" : 1,"_id" : 1
+            },
+        ).limit(10);
+        res.json(users);
+    }catch(err){
+        console.log(err);
+        res.status(500).json({ error: "Server error" });
+    }
+});
+
+app.post("/plusfollowing",async(req,res)=>{
+    try{
+        const {email} = req.body;
+        const user = await User.findOne({
+            email,
+        });
+        const flwing = (user.followings || 0) + 1;
+        const updateUser = await User.findOneAndUpdate(
+            {email},
+            {"followings" : flwing},
+            {new : true},
+        )
+        res.json(updateUser);
+    }catch(err){
+        res.status(500).json({error : err.message});
+    }
+}) 
 
 app.listen(8080,()=>{
     console.log(`app is listing at port 8080`);

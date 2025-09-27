@@ -39,7 +39,7 @@ export default function Post({id,profilepic,username,contentText,contentImg}){
     }
 
     const editPost = () => {
-        navigate(`/editpost/${id}`);
+        navigate(`/post/edit/${id}`);
     }
 
     return(

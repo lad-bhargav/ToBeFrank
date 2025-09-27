@@ -14,6 +14,7 @@ import MyPosts from './pages/MyPosts';
 import EditPost from './pages/EditPost';
 import Explore from './pages/Explore';
 import TbfUsersProfile from './pages/TbfUsersProfile';
+import NotFound from './pages/NotFound';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -28,9 +29,10 @@ createRoot(document.getElementById('root')).render(
             <Route path='/profile/edit' element = {<EditProfile/>}/>
             <Route path='/create' element = {<CreatePost/>}/>
             <Route path='myposts' element = {<MyPosts/>}/>
-            <Route path='/editpost/:id' element= {<EditPost/>}/>
+            <Route path='/post/edit/:id' element= {<EditPost/>}/>
             <Route path='/explore' element={<Explore/>}/>
             <Route path='/user/:id' element={<TbfUsersProfile/>}/>
+            <Route path='*' element={<NotFound/>}/>
         </Routes>
     </BrowserRouter>
   </StrictMode>,

@@ -10,10 +10,6 @@ export default function Profile(){
         getProfile();
     },[]);
 
-    const editProfile = () => {
-        navigate("/profile/edit");
-    }
-
     const LogOut = () => {
         const username = localStorage.removeItem("username");
         const email = localStorage.removeItem("email");
@@ -32,6 +28,10 @@ export default function Profile(){
         setProfile(userProfile.data.profile);
     }
 
+    const myProfile = () => {
+        navigate(`/user/${profile._id}`);
+    }
+
     return(
         <div className="flex h-screen w-screen justify-center items-center pl-40 bg-gradient-to-l from-fuchsia-300 to-violet-300">
             <div className="card h-[70%] w-[50%] rounded-xl mt-5 flex  items-center flex-col gap-3 shadow-lg">
@@ -45,7 +45,7 @@ export default function Profile(){
                     <p className="text-md"><i>{profile.bio}</i></p>
                 </div>
                 <div className="flex gap-5">
-                    <button onClick={editProfile} className="h-10 text-white shadow-md cursor-pointer text-lg rounded font-normal w-20 hover:bg-violet-700 bg-violet-800">Edit</button>
+                    <button onClick={myProfile} className="h-10 p-1 text-white shadow-md cursor-pointer text-md font-semibold rounded w-25 hover:bg-violet-700 bg-violet-800">My Profile</button>
                     <button onClick={LogOut} className="h-10 shadow-md cursor-pointer text-lg rounded font-semibold w-20 bg-red-200 hover:border-[0.5px] border-red-600 text-red-600">Log-out</button>
                 </div>
             </div>

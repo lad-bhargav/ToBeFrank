@@ -7,6 +7,7 @@ export default function EditProfile(){
     const [password,setPassword] = useState("");
     const [profilepic,setProfilepic] = useState("");
     const [bio,setBio] = useState("");
+    const[id,setId] = useState("");
 
     const navigate = useNavigate();
 
@@ -23,6 +24,7 @@ export default function EditProfile(){
         setPassword(userProfile.data.profile.password);
         setProfilepic(userProfile.data.profile.profilepic);
         setBio(userProfile.data.profile.bio);
+        setId(userProfile.data.profile._id);
     }
 
     const updateProfile = async() => {
@@ -36,7 +38,7 @@ export default function EditProfile(){
         });
         if(newProfile.data.message === "profileUpdated"){
             localStorage.setItem("username",username);
-            navigate("/profile");
+            navigate(`/user/${id}`);
         }else{
             alert("Edit Profile Failed");
         }

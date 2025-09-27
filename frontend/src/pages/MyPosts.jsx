@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Post from "../components/Post";
+import InboxOutlinedIcon from '@mui/icons-material/InboxOutlined';
 
 export default function MyPosts(){
     const [userPosts,setUserPosts] = useState([]);
@@ -39,7 +40,10 @@ export default function MyPosts(){
                         </div>
                     ))
                 ) : (
-                    <p className="text-4xl text-center font-bold">No Posts found</p>
+                    <div className="h-screen w-screen text-center content-center">
+                        <div><InboxOutlinedIcon sx={{ fontSize: 60, color: "black" }} /></div>
+                        <p className="text-4xl text-center font-bold">No Posts found</p>
+                    </div>
                 )
             }
             </div>

@@ -16,6 +16,12 @@ const userSchema = new Schema({
     },
     bio : {
         type : String,
+    },
+    followers : {
+        type : Number,
+    },
+    followings : {
+        type : Number,
     }
 });
 
