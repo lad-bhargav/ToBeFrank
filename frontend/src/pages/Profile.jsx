@@ -13,7 +13,8 @@ export default function Profile(){
     const LogOut = () => {
         const username = localStorage.removeItem("username");
         const email = localStorage.removeItem("email");
-        navigate("/login");
+        window.dispatchEvent(new Event("storage"));
+        navigate("/login",{replace : false,state : {isLoginIn : false}});
     }
 
     const getProfile = async() => {

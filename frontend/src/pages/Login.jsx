@@ -1,13 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import logo from "../assets/tbflogo.png";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 export default function Login(){
+
     const navigate = useNavigate();
     const signup = () => {
         navigate("/signup");
     }
+
 
     const [email,setEmail] = useState("");
     const [password,setPassword] = useState("");
@@ -24,8 +26,12 @@ export default function Login(){
             if(loginAPI.data.message === "loginok"){
                 localStorage.setItem("email",email);
                 localStorage.setItem("username",loginAPI.data.username);
-                navigate("/home",{replace : true});
-            }else{
+                window.dispatchEvent(new Event("storage")); 
+                navigate("/home",{replace : true,state : {logginIn : true}});
+            }else if(loginAPI.data.message === "login-failed"){
+                alert("Enter proper details and try again");
+            }
+            else{
                 alert("Login Failed");
             }
         }catch(err){

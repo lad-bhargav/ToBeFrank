@@ -4,6 +4,7 @@ import { useState } from "react";
 import Post from "../components/Post";
 import SearchIcon from '@mui/icons-material/Search';
 import { useNavigate } from "react-router-dom";
+import stars from "../assets/stars.png";
 
 export default function Explore(){
     const [posts,setPosts] = useState([]);
@@ -48,11 +49,11 @@ export default function Explore(){
         }
 
     return(
-        <div className="h-screen max-w-screen bg-gradient-to-l from-fuchsia-300 to-violet-300">
-            <div className="top h-[35%] w-full flex justify-center items-center pl-70">
-                <div className="h-13 w-120 rounded flex justify-center items-center relative">
-                    <input type="text" onChange={handleSearch} placeholder="find your friends here..." className="h-12 shadow-lg w-105 p-5 bg-white rounded-l-full"/>
-                    <div className=" bg-violet-950 shadow-l h-12 w-13 rounded-r-full text-white flex justify-center items-center">
+        <div className="h-screen max-w-screen bg-gradient-to-l from-fuchsia-300 to-violet-300 bg-cover bg-center">
+            <div className="top h-[35%] w-full flex justify-center items-center pl-70 bg-cover bg-center" style={{backgroundImage : `linear-gradient(to right, rgba(0,2,0,0.7), rgba(0,2,0,7)), url(${stars})`}}>
+                <div className="h-12.5 w-150 rounded flex justify-center items-center relative">
+                    <input type="text" onChange={handleSearch} placeholder="find your friends here..." className="h-full shadow-lg w-full p-5 bg-white rounded-l-full"/>
+                    <div className=" bg-violet-950 shadow-l h-13 w-13 rounded-r-full text-white flex justify-center items-center">
                         <SearchIcon fontSize="large"/>
                     </div>
                     {results.length > 0 && (

@@ -25,7 +25,8 @@ app.get("/",(req,res)=>{
 app.post("/signup",async(req,res)=>{
     try{
         let {email,username,password} = req.body;
-        const newUser = new User({
+        if(email !== "" && username !== "" && password !== ""){
+            const newUser = new User({
             email : email,
             username : username,
             password : password,
@@ -34,6 +35,11 @@ app.post("/signup",async(req,res)=>{
         res.json({
             "message" : "signuped",
         })
+        }else{
+            res.json({
+                "message" : "signup-failed",
+            })
+        }
     }catch(err){
         res.status(500).json({error : err.message});
     }
@@ -42,7 +48,8 @@ app.post("/signup",async(req,res)=>{
 
 app.post("/login",async(req,res)=>{
     let {email,password} = req.body;
-    const user = await User.find({
+    if(email !== "" && password !== ""){
+        const user = await User.find({
         "email" : email,
     });
     if(user.length == 0){
@@ -60,6 +67,11 @@ app.post("/login",async(req,res)=>{
         res.json({
             "message" : "Invalid Password",
         });
+    }
+    }else{
+        res.json({
+            "message" : "login-failed",
+        })
     }
 });
 
@@ -239,7 +251,25 @@ app.post("/plusfollowing",async(req,res)=>{
     }catch(err){
         res.status(500).json({error : err.message});
     }
-}) 
+})
+
+app.post("/plusfollower",async(req,res)=>{
+    try{
+        const {email} = req.body;
+        const user = await User.findOne({
+            email,
+        });
+        const flwing = (user.followers || 0) + 1;
+        const updateUser = await User.findOneAndUpdate(
+            {email},
+            {"followers" : flwing},
+            {new : true},
+        )
+        res.json(updateUser);
+    }catch(err){
+        res.status(500).json({error : err.message});
+    }
+}); 
 
 app.listen(8080,()=>{
     console.log(`app is listing at port 8080`);

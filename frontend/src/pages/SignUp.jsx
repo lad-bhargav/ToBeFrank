@@ -24,7 +24,10 @@ export default function SignUp(){
             });
             if(signupAPI.data.message === "signuped"){
                 navigate("/login",{replace : true});
-            }else{
+            }else if(signupAPI.data.message === "signup-failed"){
+                alert("fill details properly and try again");
+            }
+            else{
                 alert("sign-up failed");
             }
         }catch(err){
@@ -36,7 +39,7 @@ export default function SignUp(){
         <div className="h-screen w-screen flex justify-center pl-40 items-center bg-gradient-to-l from-fuchsia-100 to-violet-200">
                 <div className="card mt-5 h-[65%] w-[30%] text-center p-5 flex justify-center items-center flex-col rounded-xl shadow-lg gap-2 bg-gradient-to-r from-violet-300 to-violet-300">
                     <h1 className="text-3xl font-bold">Sign-Up</h1>
-                    <input type="text" placeholder="email" name="email" className="h-10 w-65 shadow-md bg-gray-50 rounded p-2 mt-5" value={email} onChange={(e)=>setEmail(e.target.value)}/>
+                    <input type="email" placeholder="email" name="email" className="h-10 w-65 shadow-md bg-gray-50 rounded p-2 mt-5" value={email} onChange={(e)=>setEmail(e.target.value)}/>
                     <input type="text" placeholder="username" name="username" className="h-10 w-65 shadow-md bg-gray-50 rounded p-2 mt-5" value={username} onChange={(e) => setUsername(e.target.value)}/>
                     <input type="password" placeholder="password" name="password" className="h-10 w-65 shadow-md bg-gray-50 rounded p-2 mt-5" value={password} onChange={(e)=>setPassword(e.target.value)}/>
                     <button className="mt-7 h-10 text-white shadow-md cursor-pointer text-lg rounded font-semibold w-25 bg-gradient-to-l from-violet-700 to-violet-500" onClick={onSubmitBtn}>Sign-up</button>

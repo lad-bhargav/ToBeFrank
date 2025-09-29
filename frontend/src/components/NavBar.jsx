@@ -22,10 +22,21 @@ export default function NavBar(){
     }
 
     useEffect(()=>{
+        const checkLogin = () => {
         if(localStorage.getItem("email") != undefined){
             setIsLogin(true);
+        } else {
+            setIsLogin(false);
         }
-    },[isLogin]);
+    };
+
+    checkLogin(); // run once
+    window.addEventListener("storage", checkLogin);
+
+    return () => {
+        window.removeEventListener("storage", checkLogin);
+    };
+    },[]);
 
     return(
         <div className="h-full w-[45vh] flex flex-col items-center fixed shadow-sm bg-gradient-to-b from-fuchsia-100 to-violet-200">
